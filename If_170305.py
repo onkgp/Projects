@@ -14,8 +14,8 @@ if 조건문:
     수행할 문장2
     ...
 else:
-    수행할 문장A
-    수행할 문장B
+    수행할 문장1
+    수행할 문장2
     ...
 조건문을 테스트해서 참이면 if문 바로 다음의 문자(if블록)들을 수행하고,
 조건문이 거짓이면 else문 다음의 문장(else블록)들을 수행하게 된다.
@@ -99,3 +99,75 @@ x in 리스트      x not in 리스트
 x in 튜플        x not in 튜플
 x in 문자열      x not int 문자열
 '''
+print(1 in [1, 2, 3]) #리스트 안에 1이 있는가? 라는 조건문이다. 1이 있으므로 True를 리턴한다.
+print(1 not in [1, 2, 3]) #리스트 안에 1이 없는가? 라는 조건문이다. 1이 있으므로 False를 리턴한다.
+
+print('a' in ('a', 'b', 'c')) #튜플 안에 a가 있으므로 True를 리턴한다.
+
+print('j' not in 'python') #문자열 안에 j가 없으므로 True를 리턴한다.
+
+# Ex) 만약 주머니에 돈이 있으면 택시를 타고, 없으면 걸어 가라
+pocket = ['paper', 'cellphone', 'money']
+if 'money' in pocket:
+    print("택시를 타고 가라")
+else:
+    print("걸어가라")
+
+# 조건문에서 아무 일도 하지 않게 설정하고 싶다면?
+# Ex) 주머니에 돈이 있으면 가만히 있고 주머니에 돈이 없으면 카드를 꺼내라
+pocket = ['paper', 'cellphone', 'money']
+if 'money' in pocket:
+    pass #조건을 만족하면 아무런 결과도 출력하지 않는다.
+else:
+    print("카드를 꺼내라")
+
+
+# 다양한 조건을 판단하는 elif
+
+# Ex) 주머니에 돈이 있으면 택시를 타고, 주머니에 돈은 없지만 카드가 있으면 택시를 타고, 돈도 없고 카드도 없으면 걸어가라
+# 조건을 판단하는 부분이 두 군데(주머니에 돈이 있는지 판단, 없다면 카드가 있는지 판단)있는 예시인데 if와 else로 표현하면 다음과 같다
+pocket = ['paper', 'cellphone']
+card = 1
+if 'money' in pocket:
+    print("택시를 타고가라")
+else:
+    if card:
+        print("택시를 타고가라")
+    else:
+        print("걸어가라")
+
+# elif를 사용하면 더 간단하게 작성할 수 있다. elif는 이전 조건문이 거짓을 때 수행된다.
+pocket = ['paper', 'cellphone']
+card = 1
+if 'money' in pocket:
+    print("택시를 타고가라")
+elif card:
+    print("택시를 타고가라")
+else:
+    print("걸어가라")
+
+# If, Elif, Else문의 기본 구조 (Elif는 개수에 제한 없이 사용할 수 있다)
+'''
+if 조건문:
+    수행할 문장1
+    수행할 문장2
+    ...
+elif:
+    수행할 문장1
+    수행할 문장2
+    ...
+elif:
+    수행할 문장1
+    수행할 문장2
+    ...
+...
+else:
+    수행할 문장1
+    수행할 문장2
+    ...
+'''
+
+# If문을 한 줄로 작성하기 (때로는 이렇게 작성하는 것이 보기 편할 수 있다)
+pocket = ['paper', 'cellphone', 'money']
+if 'money' in pocket: pass
+else: print("카드를 꺼내라")
