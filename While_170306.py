@@ -1,5 +1,6 @@
 # pylint: disable=C0103
 # pylint: disable=C0301
+# pylint: disable=C0321
 
 # 반복해서 문장을 수행해야 할 경우 While문을 사용한다. 그래서 While문을 반복문이라고도 부른다.
 '''기본구조
