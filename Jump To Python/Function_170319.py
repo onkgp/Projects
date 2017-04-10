@@ -79,5 +79,38 @@ def 함수명(*입력변수):
     <수행할 문장1>
     <수행할 문장2>
 '''
+def _sum_many(*args): #임의로 설정한 변수명 args는 입력 인수를 뜻하는 단어인 arguments의 약자이며 관례적으로 자주 사용한다
+                      #변수명 앞에 *을 붙이면 입력값들을 전부 모아서 튜플로 만들어 준다.
+    sum4 = 0
+    for i in args:
+        sum4 = sum4 + i
+    return sum4
+result = _sum_many(1, 2, 3)
+print(result)
+
+result = _sum_many(1, 2, 3, 4, 5, 6, 7, 8, 9)
+print(result)
+
+def _sum_mul(choice, *args):
+    if choice == "sum":
+        result = 0
+        for i in args:
+            result = result + i
+    elif choice == "mul":
+        result = 1
+        for i in args:
+            result = result * i
+    return result
+result = _sum_mul('sum', 1, 2, 3, 4, 5) #sum을 선택할 때는 if문을 적용하고
+print(result)
+result = _sum_mul('mul', 1, 2, 3, 4, 5) #mul을 선택하면 elif문을 적용한다
+print(result)
+
+
+# 함수의 결과값은 언제나 하나이다
+def _sum_and_mul(a, b):
+    return a + b, a * b #함수의 결과값은 2개가 아니라 언제나 1개라 오류가 발생하지 않는다
+result = _sum_and_mul(3, 4)
+print(result)
 
 
